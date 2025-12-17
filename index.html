@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snappfood</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.rawgit.com/rastikerdar/vazir-font/v27.0.1/dist/font-face.css" rel="stylesheet" type="text/css" />
+    <link href="static/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="loader" class="loader" style="display:none"></div>
+    <div id="overlay" style="display:none"></div>
+    <div class="content-wrapper">
+        <h1 class="label-custom">تحلیل احساسات کامنت‌های اسنپ‌فود</h1>
+        <!-- این نسخه ایستا است؛ فرم به روت محلی ارسال نمی‌کند -->
+        <form action="#" method="get">
+            <textarea class="text-area-custom" name="user_input_text" rows="4" cols="50" placeholder="نظر خود را اینجا وارد کنید..."></textarea>
+            <br>
+            <input type="submit" class="submit-button-custom" value="تحلیل نظر">
+        </form>
+        <h2 id="predictionText" style="display:none">پیش‌بینی احساس: </h2>
+    </div>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.querySelector('form');
+            var loader = document.getElementById('loader');
+            var overlay = document.getElementById('overlay');
+
+            form.onsubmit = function (e) {
+                e.preventDefault();
+                loader.style.display = 'block';
+                overlay.style.display = 'block';
+                setTimeout(function () {
+                    loader.style.display = 'none';
+                    overlay.style.display = 'none';
+                    var text = document.querySelector('textarea').value || '---';
+                    var out = document.getElementById('predictionText');
+                    out.style.display = 'block';
+                    out.textContent = 'پیش‌بینی احساس: (این نسخه ایستا است) — متن وارد شده: ' + text;
+                }, 800);
+            };
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
