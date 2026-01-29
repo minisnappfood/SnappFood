@@ -3,4 +3,5 @@ numpy
 tensorflow
 Flask==2.2.0
 Werkzeug==2.2.3
+gunicorn
 
